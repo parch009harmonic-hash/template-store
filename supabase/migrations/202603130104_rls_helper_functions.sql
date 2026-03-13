@@ -1,5 +1,21 @@
 begin;
 
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_type t
+    join pg_namespace n on n.oid = t.typnamespace
+    where n.nspname = 'public'
+      and t.typname = 'app_user_role'
+  ) then
+    create type public.app_user_role as enum ('customer', 'staff', 'admin');
+  end if;
+end $$;
+
+alter table if exists public.profiles
+  add column if not exists app_role public.app_user_role not null default 'customer';
+
 create or replace function public.current_profile_id()
 returns uuid
 language sql
@@ -16,7 +32,10 @@ security definer
 set search_path = public
 as $$
   with me as (
-    select p.app_role
+    select coalesce(
+      (to_jsonb(p) ->> 'app_role')::public.app_user_role,
+      'customer'::public.app_user_role
+    ) as app_role
     from public.profiles p
     where p.id = auth.uid()
       and p.deleted_at is null
