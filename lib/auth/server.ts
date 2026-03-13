@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import type { Route } from "next";
 import type { User } from "@supabase/supabase-js";
 
 import { hasRequiredAdminRole, type AdminRole } from "@/lib/auth/roles";
@@ -167,7 +168,7 @@ export async function getCurrentProfile(): Promise<ProfileRow | null> {
   return ensureProfile(supabase, user);
 }
 
-export async function requireAuth(redirectTo = "/member/login"): Promise<AuthContext> {
+export async function requireAuth(redirectTo: Route = "/member/login"): Promise<AuthContext> {
   const supabase = await createServerSupabaseClient();
   const user = await getCurrentUserWithClient(supabase);
 
