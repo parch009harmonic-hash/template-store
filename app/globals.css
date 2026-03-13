@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 35 33% 96%;
+  --foreground: 25 24% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 25 24% 14%;
+  --primary: 21 87% 46%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 33 34% 88%;
+  --secondary-foreground: 25 24% 14%;
+  --muted: 34 31% 92%;
+  --muted-foreground: 24 11% 42%;
+  --accent: 156 43% 87%;
+  --accent-foreground: 157 54% 17%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 30 18% 82%;
+  --input: 30 18% 82%;
+  --ring: 21 87% 46%;
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 22 22% 11%;
+  --foreground: 30 22% 94%;
+  --card: 22 24% 14%;
+  --card-foreground: 30 22% 94%;
+  --primary: 21 87% 56%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 23 18% 22%;
+  --secondary-foreground: 30 22% 94%;
+  --muted: 23 18% 20%;
+  --muted-foreground: 25 11% 72%;
+  --accent: 155 28% 24%;
+  --accent-foreground: 145 36% 88%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 25 15% 27%;
+  --input: 25 15% 27%;
+  --ring: 21 87% 56%;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: "Sarabun", "Noto Sans Thai", "Segoe UI", sans-serif;
+  background-image:
+    radial-gradient(circle at top left, rgba(234, 157, 93, 0.14), transparent 42%),
+    radial-gradient(circle at bottom right, rgba(102, 178, 149, 0.1), transparent 40%);
+  min-height: 100vh;
+  color-scheme: light;
+}
+
+.dark body {
+  background-image:
+    radial-gradient(circle at top left, rgba(239, 141, 66, 0.22), transparent 38%),
+    radial-gradient(circle at bottom right, rgba(67, 141, 114, 0.18), transparent 35%);
+  color-scheme: dark;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Pridi", "Noto Serif Thai", "Sarabun", serif;
+}
