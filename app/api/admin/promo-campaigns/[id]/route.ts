@@ -9,7 +9,7 @@ import {
 import { promoCampaignUpdateSchema } from "@/lib/validation/promo-campaigns";
 
 interface Params {
-  params: Promise<{ id: string }> | { id: string };
+  params: Promise<{ id: string }>;
 }
 
 function toBoolean(value: unknown) {

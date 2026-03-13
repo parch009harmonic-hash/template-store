@@ -4,7 +4,7 @@ import { getApiAdminContext } from "@/lib/supabase/api";
 import { getCategoryById, softDeleteCategory, updateCategory } from "@/lib/supabase/crud/categories";
 
 interface Params {
-  params: Promise<{ id: string }> | { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function GET(request: Request, { params }: Params) {

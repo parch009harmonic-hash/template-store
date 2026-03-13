@@ -36,7 +36,7 @@ export async function POST(request: Request) {
   const adminContext = await getApiAdminContext(body.restaurantId, "admin");
   if (adminContext.error || !adminContext.user) {
     logger.warn("notifications.broadcast.unauthorized", { requestId });
-    return adminContext.error;
+    return adminContext.error ?? NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const vapidPublicKey = getPublicEnv().vapidPublicKey;

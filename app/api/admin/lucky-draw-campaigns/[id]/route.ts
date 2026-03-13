@@ -8,7 +8,7 @@ import {
 import { luckyDrawCampaignUpdateSchema } from "@/lib/validation/lucky-draw";
 
 interface Params {
-  params: Promise<{ id: string }> | { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function PATCH(request: Request, { params }: Params) {

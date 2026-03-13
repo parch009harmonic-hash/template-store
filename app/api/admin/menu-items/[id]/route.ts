@@ -4,7 +4,7 @@ import { getApiAdminContext } from "@/lib/supabase/api";
 import { getMenuItemById, softDeleteMenuItem, updateMenuItem } from "@/lib/supabase/crud/menu-items";
 
 interface Params {
-  params: Promise<{ id: string }> | { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export async function GET(request: Request, { params }: Params) {

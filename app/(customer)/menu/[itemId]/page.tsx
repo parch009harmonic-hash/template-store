@@ -10,7 +10,7 @@ import { customerMenuItems } from "@/lib/mock/customer";
 import { cn } from "@/lib/utils";
 
 interface MenuDetailPageProps {
-  params: Promise<{ itemId: string }> | { itemId: string };
+  params: Promise<{ itemId: string }>;
 }
 
 export default async function MenuDetailPage({ params }: MenuDetailPageProps) {
